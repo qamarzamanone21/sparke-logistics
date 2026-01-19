@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<button type="button" onclick="getLocation()" style="margin-bottom:12px;padding:10px 18px;border:none;border-radius:20px;background:#007bff;color:#fff;">📍 Share Current Location</button>
+
+
+<input type="text" id="drop" placeholder="Drop Location" required />
+
+
+<label style="font-weight:bold;">Preferred Pickup Time</label>
+<input type="time" id="time" required />
+
+
+<label style="font-weight:bold;">Estimated Price (PKR)</label>
+<input type="number" id="price" placeholder="e.g. 300" />
+
+
+<textarea id="details" placeholder="Parcel Details"></textarea>
+<button type="submit">Send Request on WhatsApp</button>
+</form>
+<p style="font-size:13px;">*Pickup details will be sent to WhatsApp automatically.</p>
+
+
+<script>
+function getLocation() {
+if (navigator.geolocation) {
+navigator.geolocation.getCurrentPosition(function(position) {
+var lat = position.coords.latitude;
+var lon = position.coords.longitude;
+var mapLink = 'https://www.google.com/maps?q=' + lat + ',' + lon;
+document.getElementById('pickup').value = mapLink;
+});
+} else {
+alert('Geolocation is not supported by this browser.');
+}
+}
+
+
+document.getElementById('pickupForm').addEventListener('submit', function(e) {
+e.preventDefault();
+var name = document.getElementById('name').value;
+var phone = document.getElementById('phone').value;
+var pickup = document.getElementById('pickup').value;
+var drop = document.getElementById('drop').value;
+var time = document.getElementById('time').value;
+var price = document.getElementById('price').value || 'Not Confirmed';
+var details = document.getElementById('details').value;
+
+
+var message = 'Hello Sparke Logistics,%0A%0A' +
+'*Pickup Request*%0A' +
+'Name: ' + name + '%0A' +
+'Contact: ' + phone + '%0A' +
+'Pickup Location: ' + pickup + '%0A' +
+'Drop Location: ' + drop + '%0A' +
+'Pickup Time: ' + time + '%0A' +
+'Estimated Price: PKR ' + price + '%0A' +
+'Parcel Details: ' + details;
+
+
+var whatsappURL = 'https://wa.me/923115531210?text=' + message;
+window.open(whatsappURL, '_blank');
+});
+</script>
+</div>
+</section>
+
+
+<div class="contact">
+<h2>Contact Us</h2>
+<p>📍 Karachi, Pakistan</p>
+<p>📞 WhatsApp: 0311-5531210</p>
+</div>
+
+
+<footer>
+© 2026 Sparke Logistics & Transportation. All Rights Reserved.
+</footer>
+
+
+<!-- Floating WhatsApp Icon -->
+<a class="whatsapp-float" href="https://wa.me/923115531210" target="_blank">💬</a>
+
+
+</body>
+</html>
