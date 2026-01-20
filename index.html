@@ -6,7 +6,7 @@
   <title>Sparke Logistics & Transportation | Courier Service in Karachi</title>
 
   <!-- SEO -->
-  <meta name="description" content="Sparke Logistics & Transportation – reliable courier service in Karachi. Fast pickups, safe delivery, WhatsApp booking." />
+  <meta name="description" content="Sparke Logistics & Transportation – reliable bykiya courier service in Karachi. Fast pickups, safe delivery, WhatsApp booking." />
   <meta name="keywords" content="Karachi courier, bike courier Karachi, local delivery, Sparke Logistics" />
 
   <!-- Facebook Preview -->
@@ -18,38 +18,95 @@
     body { margin:0; font-family:'Segoe UI',Arial,sans-serif; background:#0d0d0d; color:#fff; }
     a { color:#ffcc00; text-decoration:none; }
 
-    header {
-      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('hero-courier.jpg') center/cover no-repeat;
-      padding:80px 20px;
-      text-align:center;
+    /* HERO / HEADER */
+    .hero {
+      position: relative;
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                  url('hero-courier.jpg') center/cover no-repeat;
+      padding: 40px 20px 90px;
     }
-    header img { width:120px; margin-bottom:20px; }
-    header h1 { font-size:42px; margin:0; color:#ffcc00; }
-    header p { font-size:18px; max-width:700px; margin:15px auto; }
+
+    .hero-top {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    .logo-left {
+      width: 110px;
+    }
+
+    .hero-content {
+      max-width: 1100px;
+      margin: 70px auto 0;
+      text-align: center;
+    }
+
+    .hero-content h1 {
+      font-size: 42px;
+      margin: 0;
+      color: #ffcc00;
+    }
+
+    .hero-content p {
+      font-size: 18px;
+      max-width: 700px;
+      margin: 15px auto 25px;
+    }
 
     .btn {
-      display:inline-block; margin:10px; padding:14px 28px; border-radius:30px; font-weight:bold;
+      display: inline-block;
+      margin: 8px;
+      padding: 14px 28px;
+      border-radius: 30px;
+      font-weight: bold;
     }
+
     .btn-primary { background:#ffcc00; color:#000; }
     .btn-secondary { border:2px solid #ffcc00; color:#ffcc00; }
 
     section { padding:60px 20px; max-width:1100px; margin:auto; }
-    h2 { color:#ffcc00; margin-bottom:20px; }
+    h2 { color:#ffcc00; margin-bottom:20px; text-align:center; }
 
     .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:25px; }
+
     .card {
-      background:#1a1a1a; border-radius:16px; padding:25px; text-align:center;
+      background:#1a1a1a;
+      border-radius:16px;
+      padding:25px;
+      text-align:center;
       box-shadow:0 10px 30px rgba(0,0,0,0.5);
     }
+
     .card img { width:100%; border-radius:12px; margin-bottom:15px; }
 
-    .video-box iframe { width:100%; height:320px; border-radius:16px; border:none; }
-
-    form input, form textarea {
-      width:100%; padding:14px; margin-bottom:12px; border-radius:10px; border:none;
+    .video-box iframe {
+      width:100%;
+      height:320px;
+      border-radius:16px;
+      border:none;
     }
+
+    /* FORM */
+    form input, form textarea {
+      width:100%;
+      padding:14px;
+      margin-bottom:12px;
+      border-radius:10px;
+      border:none;
+    }
+
     form button {
-      width:100%; background:#ffcc00; color:#000; padding:14px; border:none; border-radius:30px; font-weight:bold; cursor:pointer;
+      width:100%;
+      background:#ffcc00;
+      color:#000;
+      padding:14px;
+      border:none;
+      border-radius:30px;
+      font-weight:bold;
+      cursor:pointer;
     }
 
     .contact { background:#000; text-align:center; padding:40px 20px; }
@@ -58,19 +115,42 @@
 
     /* Floating WhatsApp */
     .whatsapp-float {
-      position:fixed; bottom:20px; right:20px; background:#25D366; width:55px; height:55px;
-      border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:28px; z-index:1000;
+      position:fixed;
+      bottom:20px;
+      right:20px;
+      background:#25D366;
+      width:55px;
+      height:55px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:28px;
+      z-index:1000;
+    }
+
+    @media (max-width:600px) {
+      .hero-content h1 { font-size:32px; }
     }
   </style>
 </head>
 <body>
 
-<header>
-  <img src="logo-removebg-preview.png" alt="logo-removebg-preview.png" />
-  <h1>Sparke Logistics & Transportation</h1>
-  <p>Reliable bykiya courier service in Karachi — starting small, delivering with trust, growing step by step.</p>
-  <a class="btn btn-primary" href="https://wa.me/923115531210" target="_blank">💬 Book on WhatsApp</a>
-  <a class="btn btn-secondary" href="#pickup">📦 Request Pickup</a>
+<header class="hero">
+  <div class="hero-top">
+    <img src="sparke-logo.jpg" alt="Sparke Logistics Logo" class="logo-left" />
+  </div>
+
+  <div class="hero-content">
+    <h1>Sparke Logistics & Transportation</h1>
+    <p>
+      Reliable bykiya courier service in Karachi — starting small,
+      delivering with trust, growing step by step.
+    </p>
+
+    <a class="btn btn-primary" href="https://wa.me/923115531210" target="_blank">💬 Book on WhatsApp</a>
+    <a class="btn btn-secondary" href="#pickup">📦 Request Pickup</a>
+  </div>
 </header>
 
 <section>
@@ -81,11 +161,13 @@
       <h3>Bike Courier</h3>
       <p>Fast bykiya delivery for documents and small parcels across Karachi.</p>
     </div>
+
     <div class="card">
       <img src="service-sameday.jpg" alt="Same Day Delivery" />
       <h3>Same-Day Delivery</h3>
       <p>Urgent deliveries handled with care and on-time commitment.</p>
     </div>
+
     <div class="card">
       <img src="service-business.jpg" alt="Business Delivery" />
       <h3>Business Support</h3>
@@ -97,11 +179,7 @@
 <section>
   <h2>See Us in Action</h2>
   <div class="video-box">
-    <iframe 
-  src="https://www.youtube.com/embed/OgUtNKN3jbU" 
-  allowfullscreen>
-</iframe>
-
+    <iframe src="https://www.youtube.com/embed/OgUtNKN3jbU" allowfullscreen></iframe>
   </div>
 </section>
 
@@ -121,8 +199,8 @@
 
 <section>
   <h2>Contact & Location</h2>
-  <p>📍 P&T Colony, Gizri Road, Clifton, Karachi, Pakistan</p>
-  <p>📘 <a href="https://www.facebook.com/profile.php?id=100084954529083" target="_blank">Facebook Page</a></p>
+  <p style="text-align:center;">📍 P&T Colony, Gizri Road, Clifton, Karachi, Pakistan</p>
+  <p style="text-align:center;">📘 <a href="https://www.facebook.com/profile.php?id=100084954529083" target="_blank">Facebook Page</a></p>
 </section>
 
 <div class="contact">
