@@ -6,9 +6,8 @@
 
 <title>Sparke Logistics & Transportation | Bike Courier Karachi</title>
 
-<meta name="description" content="Affordable bike courier service in Karachi with live distance-based pricing. Book pickup instantly via WhatsApp.">
+<meta name="description" content=" Affordable bike courier service in Karachi with live distance-based pricing. Book pickup instantly via WhatsApp.">
 <meta name="keywords" content="bike courier Karachi, courier service Karachi, Sparke Logistics">
-<meta name="author" content="Sparke Logistics & Transportation">
 
 <style>
 body{margin:0;font-family:Segoe UI,Arial;background:#0d0d0d;color:#fff}
@@ -20,10 +19,9 @@ h2{text-align:center;color:#ffcc00}
 background:linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)),url('hero-courier2.jpg') center/cover no-repeat;
 padding:40px 20px 90px
 }
-.hero-top{max-width:1100px;margin:auto}
 .logo-left{width:110px}
 .hero-content{text-align:center;margin-top:70px}
-.hero-content h1{color:#ffcc00;font-size:42px}
+.hero-content h1{color:#ffcc00;font-size:40px}
 
 .btn{display:inline-block;padding:14px 28px;border-radius:30px;font-weight:bold;margin:6px}
 .btn-primary{background:#ffcc00;color:#000}
@@ -36,7 +34,7 @@ width:100%;padding:14px;margin-bottom:12px;border-radius:10px;border:none
 }
 
 button{
-width:100%;background:#ffcc00;color:#000;padding:14px;border:none;border-radius:30px;font-weight:bold
+width:100%;background:#ffcc00;color:#000;padding:14px;border:none;border-radius:30px;font-weight:bold;cursor:pointer
 }
 
 iframe{width:100%;height:350px;border-radius:16px;border:none}
@@ -52,10 +50,7 @@ display:flex;align-items:center;justify-content:center;font-size:28px
 <body>
 
 <header class="hero">
-<div class="hero-top">
 <img src="logo-removebg-preview.png" class="logo-left">
-</div>
-
 <div class="hero-content">
 <h1>Sparke Logistics & Transportation</h1>
 <p>Fast & affordable bike courier service in Karachi</p>
@@ -91,7 +86,7 @@ display:flex;align-items:center;justify-content:center;font-size:28px
 <input id="phone" placeholder="Phone / WhatsApp" required>
 <input type="time" id="ptime" required>
 <textarea id="details" placeholder="Parcel details"></textarea>
-<button type="submit">Send Booking on WhatsApp</button>
+<button type="submit">Send Booking & Confirm Price</button>
 </form>
 </div>
 </section>
@@ -107,30 +102,45 @@ display:flex;align-items:center;justify-content:center;font-size:28px
 
 <a class="whatsapp-float" href="https://wa.me/923115531210" target="_blank">💬</a>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD0OISfQUQMBzDRpEFkD_pRj2_RMO2-rvs"></script>
+<!-- GOOGLE MAPS API -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPZ4NpBvea5VJsOjd5p7HZwhGCjdTZl4E&libraries=places"></script>
 
 <script>
 let lastDistance = 0;
 let lastPrice = 0;
 let orderID = "SL-" + Math.floor(100000 + Math.random()*900000);
 
+const pickupInput = document.getElementById('pickup');
+const dropInput = document.getElementById('drop');
+
+new google.maps.places.Autocomplete(pickupInput);
+new google.maps.places.Autocomplete(dropInput);
+
 function calculateDistance(){
+if(!pickup.value || !drop.value){
+alert('Please enter both pickup and drop locations');
+return;
+}
+
 const service = new google.maps.DistanceMatrixService();
 service.getDistanceMatrix({
 origins:[pickup.value],
 destinations:[drop.value],
 travelMode:'DRIVING'
 }, function(res,status){
-if(status!=='OK'){alert('Distance error');return;}
+if(status !== 'OK' || res.rows[0].elements[0].status !== 'OK'){
+alert('Unable to calculate distance. Please try again.');
+return;
+}
 
 let km = res.rows[0].elements[0].distance.value / 1000;
 lastDistance = km.toFixed(1);
 
 let base = 200;
 let perKm = 25;
-let factor = size.value;
+let factor = parseFloat(size.value);
 
-lastPrice = Math.round(((base + km*perKm)*factor)/50)*50;
+lastPrice = Math.round(((base + km * perKm) * factor) / 50) * 50;
 
 distance.innerText = `Distance: ${lastDistance} km`;
 price.innerText = `Estimated Price: PKR ${lastPrice}`;
@@ -139,6 +149,11 @@ price.innerText = `Estimated Price: PKR ${lastPrice}`;
 
 function sendWhatsApp(e){
 e.preventDefault();
+
+if(lastPrice === 0){
+alert('Please calculate price before booking');
+return;
+}
 
 let msg =
 `Hello Sparke Logistics,%0A%0A`+
