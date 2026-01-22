@@ -6,43 +6,59 @@
 
 <title>Sparke Logistics & Transportation | Bike Courier Karachi</title>
 
-<meta name="description" content="Affordable bike courier service in Karachi. Get estimated price by pickup & drop location and book instantly via WhatsApp.">
-<meta name="keywords" content="bike courier Karachi, parcel delivery, Sparke Logistics">
+<meta name="description" content="Affordable bike courier service in Karachi. Instant price estimate & WhatsApp booking with Sparke Logistics.">
+<meta name="keywords" content="bike courier Karachi, Sparke Logistics, courier service Karachi">
+<meta name="author" content="Sparke Logistics">
 
 <style>
 body{margin:0;font-family:Segoe UI,Arial;background:#0d0d0d;color:#fff}
-a{color:#ffcc00;text-decoration:none}
 section{padding:60px 20px;max-width:1100px;margin:auto}
-h2{text-align:center;color:#ffcc00;margin-bottom:25px}
+h2{text-align:center;color:#ffcc00}
+p{text-align:center;color:#ccc}
 
 .hero{
-background:linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)),url('hero-courier2.jpg') center/cover no-repeat;
+background:linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.8));
 padding:40px 20px 90px
 }
+.hero-top{max-width:1100px;margin:auto;display:flex;align-items:center}
 .logo-left{width:110px}
-.hero-content{text-align:center;margin-top:70px}
-.hero-content h1{color:#ffcc00;font-size:40px}
+.hero-content{text-align:center;margin-top:60px}
+.hero-content h1{color:#ffcc00;font-size:42px}
 
-.btn{display:inline-block;padding:14px 28px;border-radius:30px;font-weight:bold;margin:6px}
+.btn{display:inline-block;padding:14px 28px;border-radius:30px;font-weight:bold;margin:6px;text-decoration:none}
 .btn-primary{background:#ffcc00;color:#000}
 .btn-secondary{border:2px solid #ffcc00;color:#ffcc00}
 
-.card{background:#1a1a1a;border-radius:16px;padding:25px;text-align:center}
+.card{background:#1a1a1a;border-radius:16px;padding:25px;margin-top:20px}
 
 input,select,textarea{
 width:100%;padding:14px;margin-bottom:12px;border-radius:10px;border:none
 }
 
 button{
-width:100%;background:#ffcc00;color:#000;padding:14px;border:none;border-radius:30px;font-weight:bold;cursor:pointer
+width:100%;background:#ffcc00;color:#000;padding:14px;border:none;border-radius:30px;font-weight:bold
 }
 
-iframe{width:100%;border-radius:16px;border:none}
+iframe{width:100%;height:360px;border-radius:16px;border:none}
+
+/* Bike Animation */
+.road{margin:40px auto;width:100%;height:80px;position:relative;overflow:hidden}
+.bike{
+position:absolute;left:-120px;font-size:50px;
+animation:ride 6s linear infinite
+}
+@keyframes ride{
+0%{left:-120px}
+100%{left:100%}
+}
+
+footer{text-align:center;background:#000;padding:15px;color:#aaa}
 
 .whatsapp-float{
 position:fixed;bottom:20px;right:20px;background:#25D366;
 width:55px;height:55px;border-radius:50%;
-display:flex;align-items:center;justify-content:center;font-size:28px
+display:flex;align-items:center;justify-content:center;
+font-size:28px;color:#fff;text-decoration:none
 }
 </style>
 </head>
@@ -50,20 +66,30 @@ display:flex;align-items:center;justify-content:center;font-size:28px
 <body>
 
 <header class="hero">
+<div class="hero-top">
 <img src="logo-removebg-preview.png" class="logo-left">
+</div>
+
 <div class="hero-content">
 <h1>Sparke Logistics & Transportation</h1>
-<p>Fast & affordable bike courier service in Karachi</p>
-<a href="#calculator" class="btn btn-primary">💰 Get Estimated Price</a>
-<a href="#booking" class="btn btn-secondary">📦 Book Pickup</a>
+<p>Fast • Safe • Affordable Bike Courier in Karachi</p>
+<a href="#calculator" class="btn btn-primary">💰 Estimate Price</a>
+<a href="#booking" class="btn btn-secondary">📦 Book on WhatsApp</a>
 </div>
 </header>
 
+<div class="road">
+<div class="bike">🚴‍♂️</div>
+</div>
+
 <section id="calculator">
-<h2>Estimated Price Calculator</h2>
+<h2>Price Estimator</h2>
+<p>Enter estimated distance between pickup & drop</p>
+
 <div class="card">
-<input id="pickup" placeholder="Pickup Location (Area / Address)" required>
-<input id="drop" placeholder="Drop Location (Area / Address)" required>
+<input id="pickup" placeholder="Pickup Area / Address" required>
+<input id="drop" placeholder="Drop Area / Address" required>
+<input id="km" type="number" placeholder="Estimated Distance (KM)" required>
 
 <select id="size">
 <option value="1">Documents</option>
@@ -71,123 +97,94 @@ display:flex;align-items:center;justify-content:center;font-size:28px
 <option value="1.4">Large (≤5kg)</option>
 </select>
 
-<button onclick="calculateDistance()">Calculate Estimated Price</button>
+<button onclick="calculatePrice()">Calculate Price</button>
 
-<h3 id="price" style="color:#ffcc00"></h3>
-<p id="distance"></p>
-<p style="font-size:13px;opacity:.8">
-*Distance & price are estimated for customer convenience.
-</p>
-</div>
-</section>
-
-<section>
-<h2>How to Place an Order</h2>
-<div class="card">
-<p>📍 Enter pickup & drop locations</p>
-<p>📦 Select parcel size</p>
-<p>💰 View estimated price instantly</p>
-<p>💬 Click WhatsApp to confirm booking</p>
-<p>🚴 Rider will be assigned after confirmation</p>
-</div>
-</section>
-
-<section>
-<h2>See How Our Delivery Works</h2>
-<div class="card">
-<iframe height="315"
-src="https://www.youtube.com/embed/0QeZV7Z9kPQ"
-title="Courier Delivery Process"
-allowfullscreen></iframe>
-<p style="margin-top:15px;font-size:14px">
-Watch how Sparke Logistics ensures safe & fast bike deliveries across Karachi.
-</p>
+<h3 id="price" style="color:#ffcc00;text-align:center"></h3>
 </div>
 </section>
 
 <section id="booking">
 <h2>Confirm Pickup Booking</h2>
+<p>Send booking instantly on WhatsApp</p>
+
 <div class="card">
 <form onsubmit="sendWhatsApp(event)">
 <input id="name" placeholder="Your Name" required>
-<input id="phone" placeholder="Phone / WhatsApp" required>
+<input id="phone" placeholder="Phone / WhatsApp Number" required>
 <input type="time" id="ptime" required>
-<textarea id="details" placeholder="Parcel details"></textarea>
-<button type="submit">Send Booking on WhatsApp</button>
+<textarea id="details" placeholder="Parcel details (optional)"></textarea>
+<button type="submit">Send Booking Request</button>
 </form>
 </div>
 </section>
 
 <section>
-<h2>Our Location</h2>
-<iframe src="https://www.google.com/maps?q=P%26T%20Colony%20Gizri%20Road%20Clifton%20Karachi&output=embed" height="350"></iframe>
+<h2>How to Place an Order</h2>
+<p>
+1️⃣ Enter pickup & drop location<br>
+2️⃣ Estimate distance in KM<br>
+3️⃣ Calculate price<br>
+4️⃣ Confirm booking via WhatsApp<br>
+5️⃣ Rider arrives & delivers safely 🚀
+</p>
 </section>
 
-<footer style="text-align:center;background:#000;padding:15px;color:#aaa">
+<section>
+<h2>Watch How We Deliver</h2>
+<p>Watch how Sparke Logistics ensures safe & fast bike deliveries across Karachi.</p>
+
+<iframe src="https://www.youtube.com/embed/hT6-jBNC254" allowfullscreen></iframe>
+</section>
+
+<footer>
 © 2026 Sparke Logistics & Transportation
 </footer>
 
 <a class="whatsapp-float" href="https://wa.me/923115531210" target="_blank">💬</a>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
-
 <script>
-let lastDistance = 0;
 let lastPrice = 0;
 let orderID = "SL-" + Math.floor(100000 + Math.random()*900000);
 
-new google.maps.places.Autocomplete(pickup);
-new google.maps.places.Autocomplete(drop);
+function calculatePrice(){
+let km = Number(document.getElementById("km").value);
+let factor = Number(document.getElementById("size").value);
 
-function calculateDistance(){
-if(!pickup.value || !drop.value){
-alert('Please enter pickup and drop locations');
+if(!km || km <= 0){
+alert("Please enter valid distance in KM");
 return;
 }
 
-const service = new google.maps.DistanceMatrixService();
-service.getDistanceMatrix({
-origins:[pickup.value],
-destinations:[drop.value],
-travelMode:'DRIVING'
-}, function(res,status){
-if(status !== 'OK'){ alert('Unable to estimate distance'); return; }
-
-let km = res.rows[0].elements[0].distance.value / 1000;
-lastDistance = km.toFixed(1);
-
 let base = 200;
 let perKm = 25;
-let factor = parseFloat(size.value);
 
-lastPrice = Math.round(((base + km * perKm) * factor) / 50) * 50;
+lastPrice = Math.round((base + (km * perKm)) * factor);
 
-distance.innerText = `Estimated Distance: ${lastDistance} km`;
-price.innerText = `Estimated Price: PKR ${lastPrice}`;
-});
+document.getElementById("price").innerText =
+`Estimated Price: PKR ${lastPrice}`;
 }
 
 function sendWhatsApp(e){
 e.preventDefault();
 
 if(lastPrice === 0){
-alert('Please calculate estimated price first');
+alert("Please calculate price first");
 return;
 }
 
 let msg =
 `Hello Sparke Logistics,%0A%0A`+
-`📦 PICKUP REQUEST (Estimated)%0A`+
+`📦 NEW BIKE COURIER REQUEST%0A`+
 `Order ID: ${orderID}%0A`+
 `Name: ${name.value}%0A`+
 `Phone: ${phone.value}%0A`+
 `Pickup: ${pickup.value}%0A`+
 `Drop: ${drop.value}%0A`+
-`Estimated Distance: ${lastDistance} km%0A`+
+`Estimated Distance: ${km.value} KM%0A`+
 `Estimated Price: PKR ${lastPrice}%0A`+
 `Pickup Time: ${ptime.value}%0A`+
 `Parcel: ${details.value || 'Standard'}%0A%0A`+
-`Please confirm final price & rider availability.`;
+`Please confirm rider availability.`;
 
 window.open(`https://wa.me/923115531210?text=${msg}`,'_blank');
 }
